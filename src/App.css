@@ -1,38 +1,228 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  /* font-family: "Jost", sans-serif; */
+  font-family: "Jost", sans-serif;
+}
+html,
+body,
+#root {
+  font: 0.9rem sans-serif;
+
+  color: #1e2432;
+  height: 100%;
+  margin: 0;
+}
+.box {
+  background: linear-gradient(rgba(69, 54, 87, 0.3), rgba(163, 95, 95, 0.418)),
+    url("images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search {
+  outline: none;
+  padding: 20px 18%;
+  border-radius: 20px;
+  margin-top: 50px;
+  align-items: center;
+  border: none;
+  margin-bottom: 5%;
+  background: rgba(250, 250, 250, 0.85);
+}
+
+.city {
+  height: 60vh;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 3rem rgba(0, 0, 0, 0.2);
+  background: #a5bbdd;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  min-width: 25rem;
+  min-height: 30rem;
+}
+
+.city-temp {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #1e2432;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.location {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 800;
+  font-size: 3.5rem;
+  text-transform: capitalize;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.location sup {
+  font-size: 0.5em;
+  padding: 0.1em 0.6em;
+  margin-left: 0.2em;
+  border-radius: 30px;
+  color: #fff;
+  background: #ff8c00;
+}
+.temp {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 3rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.tempmin_max {
+  text-align: center;
+  margin-top: 0.3rem;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #57606f;
+  z-index: -9;
+}
+.info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.city-icon {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
 }
 
-.App-link {
-  color: #61dafb;
+.description {
+  font-size: 20px;
+  font-weight: 500;
+  font-variant: bold;
+}
+.wave {
+  opacity: 0.2;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  background: white;
+  width: 60rem;
+  height: 60rem;
+  margin-left: -29rem;
+  margin-top: -17rem;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 3000ms infinite linear;
+  z-index: 11;
 }
 
-@keyframes App-logo-spin {
+.wave.-three {
+  animation: drift 5000ms infinite linear;
+  z-index: 2 !important;
+  opacity: 0.2;
+}
+
+.wave.-two {
+  animation: drift 7000ms infinite linear;
+  opacity: 0.1;
+  z-index: 3 !important;
+}
+
+.box:after {
+  content: "";
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes drift {
   from {
     transform: rotate(0deg);
   }
-  to {
+  from {
     transform: rotate(360deg);
   }
 }
+
+/* @media only screen and (max-width: 600px) {
+    .search {
+        padding: 20px 20%;
+    }
+    .city {
+      height: 100px;
+      width:30vw;
+      padding: 10px 0%;
+    }
+
+    .wave {
+      top: 60%;
+    }
+   
+ } */
+@media (max-width: 600px) {
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  .city {
+    min-width: 22rem;
+    min-height: 28rem;
+  }
+
+  .wave {
+    top: 105%;
+  }
+
+  .info {
+    font-size: 1.5rem;
+  }
+}
+@media(max-height: 500px) {
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  .search {
+    padding: 20px 18%;
+  }
+  .city {
+    min-width: 22rem;
+    min-height: 28rem;
+  }
+
+  .wave {
+    top: 100%;
+  }
+}
+@media (max-height: 400px) {
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  .city {
+      min-width: 12rem;
+      min-height: 18rem;
+    }
+    .wave {
+      top: 80%;
+    }
+  }
+
+
+
